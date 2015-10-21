@@ -186,6 +186,8 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
         
         [contacts addObject:contact];
       }
+      
+      callback(@[[NSNull null], contacts]);
     }
   }];
 }
