@@ -17,9 +17,9 @@ function _execAddressBookMethodWithParamsErrorData(func) {
   });
 }
 
-function _execAddressBookMethodWithParamError(func) {
+function _execAddressBookMethodWithParamError(contact, func) {
   return Rx.Observable.create(function(observer) {
-    func(function(error) {
+    func(contact, function(error) {
       if (error) {
         observer.onError(error);
       } else {
@@ -43,16 +43,16 @@ Contacts.rx_getAll = function() {
   return _execAddressBookMethodWithParamsErrorData(Contacts.getAll);
 };
 
-Contacts.rx_addContact = function() {
-  return _execAddressBookMethodWithParamError(Contacts.addContact);
+Contacts.rx_addContact = function(contact) {
+  return _execAddressBookMethodWithParamError(contact, Contacts.addContact);
 }
 
-Contacts.rx_updateContact = function() {
-  return _execAddressBookMethodWithParamError(Contacts.updateContact);
+Contacts.rx_updateContact = function(contact) {
+  return _execAddressBookMethodWithParamError(contact, Contacts.updateContact);
 }
 
-Contacts.rx_deleteContact = function() {
-  return _execAddressBookMethodWithParamError(Contacts.deleteContact);
+Contacts.rx_deleteContact = function(contact) {
+  return _execAddressBookMethodWithParamError(contact, Contacts.deleteContact);
 }
 
 module.exports = Contacts;
