@@ -1,6 +1,8 @@
 #import <AddressBook/AddressBook.h>
 #import <UIKit/UIKit.h>
 #import "RCTContacts.h"
+#import "APAddressBook.h"
+#import "APContact.h"
 
 @implementation RCTContacts
 
@@ -29,167 +31,163 @@ RCT_EXPORT_METHOD(checkPermission:(RCTResponseSenderBlock) callback)
 
 RCT_EXPORT_METHOD(requestPermission:(RCTResponseSenderBlock) callback)
 {
-  ABAddressBookRequestAccessWithCompletion(ABAddressBookCreateWithOptions(NULL, nil), ^(bool granted, CFErrorRef error) {
-    if (!granted){
-      [self checkPermission:callback];
-      return;
-    }
+  APAddressBook *addressBook = [[APAddressBook alloc] init];
+  
+  [addressBook requestAccess:^(BOOL granted, NSError * _Nullable error) {
     [self checkPermission:callback];
-  });
+  }];
 }
 
 RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
 {
-  ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
-  int authStatus = ABAddressBookGetAuthorizationStatus();
-  if(authStatus != kABAuthorizationStatusAuthorized){
-    ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
-      if(granted){
-        [self retrieveContactsFromAddressBook:addressBookRef withCallback:callback];
-      }else{
-        NSDictionary *error = @{
-          @"type": @"permissionDenied"
-        };
-        callback(@[error, [NSNull null]]);
+  APAddressBook *addressBook = [[APAddressBook alloc] init];
+  
+  [addressBook requestAccess:^(BOOL granted, NSError * _Nullable error) {
+    if (granted) {
+      [self retrieveContactsFromAddressBookWithCallback:callback];
+    } else {
+      callback(@[@{@"type": @"permissionDenied"}, [NSNull null]]);
+    }
+  }];
+}
+
+- (void)retrieveContactsWithCallback:(RCTResponseSenderBlock) callback {
+  NSMutableArray *contacts = [NSMutableArray array];
+  APAddressBook *addressBook = [[APAddressBook alloc] init];
+  
+  addressBook.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
+  addressBook.fieldsMask = APContactFieldAll;
+  
+  [addressBook loadContacts:^(NSArray<APContact *> * _Nullable apContacts, NSError * _Nullable error) {
+    if (!error) {
+      NSMutableArray *contacts = [NSMutableArray array];
+      for (APContact *apContact in apContacts) {
+        // RecordID
+        NSMutableDictionary *contact = [NSMutableDictionary dictionary];
+        
+        [contact setObject:apContact.recordID forKey:@"recordID"];
+        
+        // Names
+        [contact setObject:apContact.name.firstName forKey:@"givenName"];
+        [contact setObject:apContact.name.lastName forKey:@"lastName"];
+        [contact setObject:apContact.name.middleName forKey:@"middleName"];
+        [contact setObject:apContact.name.compositeName forKey:@"compositeName"];
+        
+        // Job
+        [contact setObject:apContact.job.jobTitle forKey:@"jobTitle"];
+        [contact setObject:apContact.job.company forKey:@"company"];
+        
+        // Picture
+        [contact setObject:[UIImagePNGRepresentation(apContact.thumbnail) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] forKey:@"thumbnail"];
+        
+        // Phone number
+        NSMutableArray *phoneNumbers = [NSMutableArray array];
+        
+        for (APPhone *apPhone in apContact.phones) {
+          [phoneNumbers addObject:@{@"number": apPhone.number, @"label": apPhone.localizedLabel}];
+        }
+      
+        [contact setObject:phoneNumbers forKey:@"phoneNumbers"];
+        
+        // Email addresses
+        NSMutableArray *emailAddresses = [NSMutableArray array];
+        
+        for (APEmail *apEmail in apContact.emails) {
+          [emailAddresses addObject:@{@"email": apEmail.address, @"label": apEmail.localizedLabel}];
+        }
+        
+        [contact setObject:emailAddresses forKey:@"emailAddresses"];
+        
+        // Addresses
+        NSMutableArray *addresses = [NSMutableArray array];
+        
+        for (APAddress *apAddress in apContact.addresses) {
+          [addresses addObject:@{
+            @"street": apAddress.street,
+            @"city": apAddress.city,
+            @"state": apAddress.state,
+            @"zip": apAddress.zip,
+            @"country": apAddress.country,
+            @"countryCode": apAddress.countryCode
+          }];
+        }
+        
+        [contact setObject:addresses forKey:@"addresses"];
+        
+        // Social profiles
+        NSMutableArray *socialProfiles = [NSMutableArray array];
+        
+        for (APSocialProfile *apSocialProfile in apContact.socialProfiles) {
+          NSString *socialNetwork;
+          switch (apSocialProfile.socialNetwork) {
+          case APSocialNetworkUnknown:
+            socialNetwork = @"unknown";
+            break;
+          case APSocialNetworkFacebook:
+            socialNetwork = @"facebook";
+            break;
+          case APSocialNetworkTwitter:
+            socialNetwork = @"twitter";
+          case APSocialNetworkLinkedIn:
+            socialNetwork = @"linkedin";
+          case APSocialNetworkFlickr:
+            socialNetwork = @"flickr";
+          case APSocialNetworkGameCenter:
+            socialNetwork = @"gamecenter";
+          }
+          
+          [socialProfiles addObject:@{
+            @"socialNetwork": socialNetwork,
+            @"username": apSocialProfile.username,
+            @"userIdentifier": apSocialProfile.userIdentifier,
+            @"url": [apSocialProfile.url absoluteString]
+          }];
+        }
+        
+        [contact setObject:socialProfiles forKey:@"socialProfiles"];
+        
+        // Birthday
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        [contact setObject:[formatter stringFromDate:apContact.birthday] forKey:@"birthday"];
+        
+        // Note
+        [contact setObject:apContact.note forKey:@"note"];
+        
+        // Websites
+        [contact setObject:apContact.websites forKey:@"websites"];
+        
+        // Related persons
+        NSMutableArray *relatedPersons = [NSMutableArray array];
+        
+        for (APRelatedPerson *apRelatedPerson in apContact.relatedPersons) {
+          [relatedPersons addObject:@{
+            @"name": apRelatedPerson.name,
+            @"label": apRelatedPerson.localizedLabel
+          }];
+        }
+        
+        [contact setObject:relatedPersons forKey:@"relatedPersons"];
+        
+        // Linked record IDs
+        [contact setObject:apContact.linkedRecordIDs forKey:@"linkedRecordIDs"];
+        
+        // Source
+        [contact setObject:@{
+          @"sourceType": apContact.source.sourceType,
+          @"sourceID": apContact.source.sourceID
+        } forKey:@"source"];
+        
+        // Record date
+        [contact setObject:@{
+          @"creationDate": [formatter stringFromDate:apContact.recordDate.creationDate],
+          @"modificationDate": [formatter stringFromDate:apContact.recordDate.modificationDate]
+        } forKey:@"recordDate"];
+        
+        [contacts addObject:contact];
       }
-    });
-  }
-  else{
-    [self retrieveContactsFromAddressBook:addressBookRef withCallback:callback];
-  }
-}
-
--(void) retrieveContactsFromAddressBook:(ABAddressBookRef)addressBookRef
-withCallback:(RCTResponseSenderBlock) callback
-{
-  NSArray *allContacts = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(addressBookRef, NULL, kABPersonSortByLastName);
-  int totalContacts = (int)[allContacts count];
-  int currentIndex = 0;
-  int maxIndex = --totalContacts;
-
-  NSMutableArray *contacts = [[NSMutableArray alloc] init];
-
-  while (currentIndex <= maxIndex){
-    NSDictionary *contact = [self dictionaryRepresentationForABPerson: (ABRecordRef)[allContacts objectAtIndex:(long)currentIndex]];
-
-    if(contact){
-      [contacts addObject:contact];
     }
-    currentIndex++;
-  }
-  callback(@[[NSNull null], contacts]);
-}
-
--(NSDictionary*) dictionaryRepresentationForABPerson:(ABRecordRef) person
-{
-  NSMutableDictionary* contact = [NSMutableDictionary dictionary];
-
-  NSNumber *recordID = [NSNumber numberWithInteger:(ABRecordGetRecordID(person))];
-  NSString *givenName = (__bridge_transfer NSString *)(ABRecordCopyValue(person, kABPersonFirstNameProperty));
-  NSString *familyName = (__bridge_transfer NSString *)(ABRecordCopyValue(person, kABPersonLastNameProperty));
-  NSString *middleName = (__bridge_transfer NSString *)(ABRecordCopyValue(person, kABPersonMiddleNameProperty));
-
-  [contact setObject: recordID forKey: @"recordID"];
-
-  BOOL hasName = false;
-  if (givenName) {
-    [contact setObject: givenName forKey:@"givenName"];
-    hasName = true;
-  }
-
-  if (familyName) {
-    [contact setObject: familyName forKey:@"familyName"];
-    hasName = true;
-  }
-
-  if(middleName){
-    [contact setObject: (middleName) ? middleName : @"" forKey:@"middleName"];
-  }
-
-  if(!hasName){
-    //nameless contact, do not include in results
-    return nil;
-  }
-
-  //handle phone numbers
-  NSMutableArray *phoneNumbers = [[NSMutableArray alloc] init];
-
-  ABMultiValueRef multiPhones = ABRecordCopyValue(person, kABPersonPhoneProperty);
-  for(CFIndex i=0;i<ABMultiValueGetCount(multiPhones);i++) {
-    CFStringRef phoneNumberRef = ABMultiValueCopyValueAtIndex(multiPhones, i);
-    CFStringRef phoneLabelRef = ABMultiValueCopyLabelAtIndex(multiPhones, i);
-    NSString *phoneNumber = (__bridge_transfer NSString *) phoneNumberRef;
-    NSString *phoneLabel = (__bridge_transfer NSString *) ABAddressBookCopyLocalizedLabel(phoneLabelRef);
-    if(phoneNumberRef){
-      CFRelease(phoneNumberRef);
-    }
-    if(phoneLabelRef){
-      CFRelease(phoneLabelRef);
-    }
-    NSMutableDictionary* phone = [NSMutableDictionary dictionary];
-    [phone setObject: phoneNumber forKey:@"number"];
-    [phone setObject: phoneLabel forKey:@"label"];
-    [phoneNumbers addObject:phone];
-  }
-
-  [contact setObject: phoneNumbers forKey:@"phoneNumbers"];
-  //end phone numbers
-
-  //handle emails
-  NSMutableArray *emailAddreses = [[NSMutableArray alloc] init];
-
-  ABMultiValueRef multiEmails = ABRecordCopyValue(person, kABPersonEmailProperty);
-  for(CFIndex i=0;i<ABMultiValueGetCount(multiEmails);i++) {
-    CFStringRef emailAddressRef = ABMultiValueCopyValueAtIndex(multiEmails, i);
-    CFStringRef emailLabelRef = ABMultiValueCopyLabelAtIndex(multiEmails, i);
-    NSString *emailAddress = (__bridge_transfer NSString *) emailAddressRef;
-    NSString *emailLabel = (__bridge_transfer NSString *) ABAddressBookCopyLocalizedLabel(emailLabelRef);
-    if(emailAddressRef){
-      CFRelease(emailAddressRef);
-    }
-    if(emailLabelRef){
-      CFRelease(emailLabelRef);
-    }
-    NSMutableDictionary* email = [NSMutableDictionary dictionary];
-    [email setObject: emailAddress forKey:@"email"];
-    [email setObject: emailLabel forKey:@"label"];
-    [emailAddreses addObject:email];
-  }
-  //end emails
-
-  [contact setObject: emailAddreses forKey:@"emailAddresses"];
-
-  [contact setObject: [self getABPersonThumbnailFilepath:person] forKey:@"thumbnailPath"];
-
-  return contact;
-}
-
--(NSString *) getABPersonThumbnailFilepath:(ABRecordRef) person
-{
-  if (ABPersonHasImageData(person)){
-    CFDataRef photoDataRef = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail);
-    if(!photoDataRef){
-      return nil;
-    }
-
-    NSData* data = (__bridge_transfer NSData*)photoDataRef;
-    NSString* tempPath = [NSTemporaryDirectory()stringByStandardizingPath];
-    NSError* err = nil;
-    NSString* tempfilePath = [NSString stringWithFormat:@"%@/thumbimage_XXXXX", tempPath];
-    char template[tempfilePath.length + 1];
-    strcpy(template, [tempfilePath cStringUsingEncoding:NSASCIIStringEncoding]);
-    mkstemp(template);
-    tempfilePath = [[NSFileManager defaultManager]
-    stringWithFileSystemRepresentation:template
-    length:strlen(template)];
-
-    [data writeToFile:tempfilePath options:NSAtomicWrite error:&err];
-    CFRelease(photoDataRef);
-    if(!err){
-      return tempfilePath;
-    }
-  }
-  return @"";
+  }];
 }
 
 RCT_EXPORT_METHOD(addContact:(NSDictionary *)contactData callback:(RCTResponseSenderBlock)callback)
