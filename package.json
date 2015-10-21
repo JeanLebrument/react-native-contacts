@@ -22,11 +22,26 @@
   "homepage": "https://github.com/rt2zz/react-native-contacts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "BABEL_JEST_STAGE=0 jest --verbose"
+  },
+  "jest": {
+    "scriptPreprocessor": "./node_modules/react-native/jestSupport/scriptPreprocess.js",
+    "setupEnvScriptFile": "./node_modules/react-native/jestSupport/env.js",
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "source-map"
+    ]
   },
   "author": "rt2zz <zack@root-two.com>",
   "license": "MIT",
   "dependencies": {
-    "rx": "^4.0.6"
+    "react-native": "*",
+    "rx": "*"
+  },
+  "devDependencies": {
+    "jest-cli": "*",
+    "babel-jest": "*"
   }
 }
