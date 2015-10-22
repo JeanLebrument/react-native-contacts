@@ -11,10 +11,10 @@ RCT_EXPORT_MODULE();
 - (NSDictionary *)constantsToExport
 {
   return @{
-    @"PERMISSION_DENIED": @"denied",
-    @"PERMISSION_AUTHORIZED": @"authorized",
-    @"PERMISSION_UNDEFINED": @"undefined"
-  };
+           @"PERMISSION_DENIED": @"denied",
+           @"PERMISSION_AUTHORIZED": @"authorized",
+           @"PERMISSION_UNDEFINED": @"undefined"
+           };
 }
 
 RCT_EXPORT_METHOD(checkPermission:(RCTResponseSenderBlock) callback)
@@ -44,7 +44,7 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
   
   [addressBook requestAccess:^(BOOL granted, NSError * _Nullable error) {
     if (granted) {
-      [self retrieveContactsFromAddressBookWithCallback:callback];
+      [self retrieveContactsWithCallback:callback];
     } else {
       callback(@[@{@"type": @"permissionDenied"}, [NSNull null]]);
     }
@@ -52,10 +52,9 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
 }
 
 - (void)retrieveContactsWithCallback:(RCTResponseSenderBlock) callback {
-  NSMutableArray *contacts = [NSMutableArray array];
   APAddressBook *addressBook = [[APAddressBook alloc] init];
   
-  addressBook.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES]];
+  addressBook.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name.lastName" ascending:YES]];
   addressBook.fieldsMask = APContactFieldAll;
   
   [addressBook loadContacts:^(NSArray<APContact *> * _Nullable apContacts, NSError * _Nullable error) {
@@ -65,54 +64,66 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
         // RecordID
         NSMutableDictionary *contact = [NSMutableDictionary dictionary];
         
-        [contact setObject:apContact.recordID forKey:@"recordID"];
+        [contact setValue:apContact.recordID forKey:@"recordID"];
         
         // Names
-        [contact setObject:apContact.name.firstName forKey:@"givenName"];
-        [contact setObject:apContact.name.lastName forKey:@"lastName"];
-        [contact setObject:apContact.name.middleName forKey:@"middleName"];
-        [contact setObject:apContact.name.compositeName forKey:@"compositeName"];
+        [contact setValue:apContact.name.firstName forKey:@"givenName"];
+        [contact setValue:apContact.name.lastName forKey:@"lastName"];
+        [contact setValue:apContact.name.middleName forKey:@"middleName"];
+        [contact setValue:apContact.name.compositeName forKey:@"compositeName"];
         
         // Job
-        [contact setObject:apContact.job.jobTitle forKey:@"jobTitle"];
-        [contact setObject:apContact.job.company forKey:@"company"];
+        [contact setValue:apContact.job.jobTitle forKey:@"jobTitle"];
+        [contact setValue:apContact.job.company forKey:@"company"];
         
         // Picture
-        [contact setObject:[UIImagePNGRepresentation(apContact.thumbnail) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] forKey:@"thumbnail"];
+        [contact setValue:[UIImagePNGRepresentation(apContact.thumbnail) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] forKey:@"thumbnail"];
         
         // Phone number
         NSMutableArray *phoneNumbers = [NSMutableArray array];
         
         for (APPhone *apPhone in apContact.phones) {
-          [phoneNumbers addObject:@{@"number": apPhone.number, @"label": apPhone.localizedLabel}];
+          NSMutableDictionary *phoneNumber = [NSMutableDictionary dictionary];
+          
+          [phoneNumber setValue:apPhone.number forKey:@"number"];
+          [phoneNumber setValue:apPhone.localizedLabel forKey:@"label"];
+          
+          [phoneNumbers addObject:phoneNumber];
         }
-      
-        [contact setObject:phoneNumbers forKey:@"phoneNumbers"];
+        
+        [contact setValue:phoneNumbers forKey:@"phoneNumbers"];
         
         // Email addresses
         NSMutableArray *emailAddresses = [NSMutableArray array];
         
         for (APEmail *apEmail in apContact.emails) {
-          [emailAddresses addObject:@{@"email": apEmail.address, @"label": apEmail.localizedLabel}];
+          NSMutableDictionary *emailAddress = [NSMutableDictionary dictionary];
+          
+          [emailAddress setValue:apEmail.address forKey:@"email"];
+          [emailAddress setValue:apEmail.localizedLabel forKey:@"label"];
+          
+          [emailAddresses addObject:emailAddress];
         }
         
-        [contact setObject:emailAddresses forKey:@"emailAddresses"];
+        [contact setValue:emailAddresses forKey:@"emailAddresses"];
         
         // Addresses
         NSMutableArray *addresses = [NSMutableArray array];
         
         for (APAddress *apAddress in apContact.addresses) {
-          [addresses addObject:@{
-            @"street": apAddress.street,
-            @"city": apAddress.city,
-            @"state": apAddress.state,
-            @"zip": apAddress.zip,
-            @"country": apAddress.country,
-            @"countryCode": apAddress.countryCode
-          }];
+          NSMutableDictionary *address = [NSMutableDictionary dictionary];
+          
+          [address setValue:apAddress.street forKey:@"street"];
+          [address setValue:apAddress.city forKey:@"city"];
+          [address setValue:apAddress.state forKey:@"state"];
+          [address setValue:apAddress.zip forKey:@"zip"];
+          [address setValue:apAddress.country forKey:@"country"];
+          [address setValue:apAddress.countryCode forKey:@"countryCode"];
+          
+          [addresses addObject:address];
         }
         
-        [contact setObject:addresses forKey:@"addresses"];
+        [contact setValue:addresses forKey:@"addresses"];
         
         // Social profiles
         NSMutableArray *socialProfiles = [NSMutableArray array];
@@ -120,69 +131,78 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
         for (APSocialProfile *apSocialProfile in apContact.socialProfiles) {
           NSString *socialNetwork;
           switch (apSocialProfile.socialNetwork) {
-          case APSocialNetworkUnknown:
-            socialNetwork = @"unknown";
-            break;
-          case APSocialNetworkFacebook:
-            socialNetwork = @"facebook";
-            break;
-          case APSocialNetworkTwitter:
-            socialNetwork = @"twitter";
-          case APSocialNetworkLinkedIn:
-            socialNetwork = @"linkedin";
-          case APSocialNetworkFlickr:
-            socialNetwork = @"flickr";
-          case APSocialNetworkGameCenter:
-            socialNetwork = @"gamecenter";
+            case APSocialNetworkUnknown:
+              socialNetwork = @"unknown";
+              break;
+            case APSocialNetworkFacebook:
+              socialNetwork = @"facebook";
+              break;
+            case APSocialNetworkTwitter:
+              socialNetwork = @"twitter";
+              break;
+            case APSocialNetworkLinkedIn:
+              socialNetwork = @"linkedin";
+              break;
+            case APSocialNetworkFlickr:
+              socialNetwork = @"flickr";
+              break;
+            case APSocialNetworkGameCenter:
+              socialNetwork = @"gamecenter";
+              break;
           }
           
-          [socialProfiles addObject:@{
-            @"socialNetwork": socialNetwork,
-            @"username": apSocialProfile.username,
-            @"userIdentifier": apSocialProfile.userIdentifier,
-            @"url": [apSocialProfile.url absoluteString]
-          }];
+          NSMutableDictionary *socialProfile = [NSMutableDictionary dictionary];
+          
+          [socialProfile setValue:socialNetwork forKey:@"socialNetwork"];
+          [socialProfile setValue:apSocialProfile.username forKey:@"username"];
+          [socialProfile setValue:apSocialProfile.userIdentifier forKey:@"userIdentifier"];
+          [socialProfile setValue:[apSocialProfile.url absoluteString] forKey:@"url"];
+          
+          [socialProfiles addObject:socialProfile];
         }
         
-        [contact setObject:socialProfiles forKey:@"socialProfiles"];
+        [contact setValue:socialProfiles forKey:@"socialProfiles"];
         
         // Birthday
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
-        [contact setObject:[formatter stringFromDate:apContact.birthday] forKey:@"birthday"];
+        [contact setValue:[formatter stringFromDate:apContact.birthday] forKey:@"birthday"];
         
         // Note
-        [contact setObject:apContact.note forKey:@"note"];
+        [contact setValue:apContact.note forKey:@"note"];
         
         // Websites
-        [contact setObject:apContact.websites forKey:@"websites"];
+        [contact setValue:apContact.websites forKey:@"websites"];
         
         // Related persons
         NSMutableArray *relatedPersons = [NSMutableArray array];
         
         for (APRelatedPerson *apRelatedPerson in apContact.relatedPersons) {
-          [relatedPersons addObject:@{
-            @"name": apRelatedPerson.name,
-            @"label": apRelatedPerson.localizedLabel
-          }];
+          NSMutableDictionary *relatedPersons = [NSMutableDictionary dictionary];
+          [relatedPersons setValue:apRelatedPerson.name forKey:@"name"];
+          [relatedPersons setValue:apRelatedPerson.localizedLabel forKey:@"label"];
         }
         
-        [contact setObject:relatedPersons forKey:@"relatedPersons"];
+        [contact setValue:relatedPersons forKey:@"relatedPersons"];
         
         // Linked record IDs
-        [contact setObject:apContact.linkedRecordIDs forKey:@"linkedRecordIDs"];
+        [contact setValue:apContact.linkedRecordIDs forKey:@"linkedRecordIDs"];
         
         // Source
-        [contact setObject:@{
-          @"sourceType": apContact.source.sourceType,
-          @"sourceID": apContact.source.sourceID
-        } forKey:@"source"];
+        NSMutableDictionary *source = [NSMutableDictionary dictionary];
+        
+        [source setValue:apContact.source.sourceType forKey:@"sourceType"];
+        [source setValue:apContact.source.sourceID forKey:@"sourceID"];
+        
+        [contact setValue:source forKey:@"source"];
         
         // Record date
-        [contact setObject:@{
-          @"creationDate": [formatter stringFromDate:apContact.recordDate.creationDate],
-          @"modificationDate": [formatter stringFromDate:apContact.recordDate.modificationDate]
-        } forKey:@"recordDate"];
+        NSMutableDictionary *recordDate = [NSMutableDictionary dictionary];
+        
+        [recordDate setValue:[formatter stringFromDate:apContact.recordDate.creationDate] forKey:@"creationDate"];
+        [recordDate setValue:[formatter stringFromDate:apContact.recordDate.modificationDate]forKey:@"modificationDate"];
+        
+        [contact setValue:recordDate forKey:@"recordDate"];
         
         [contacts addObject:contact];
       }
@@ -197,11 +217,11 @@ RCT_EXPORT_METHOD(addContact:(NSDictionary *)contactData callback:(RCTResponseSe
   //@TODO keep addressbookRef in singleton
   ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, nil);
   ABRecordRef newPerson = ABPersonCreate();
-
+  
   CFErrorRef error = NULL;
   ABAddressBookAddRecord(addressBookRef, newPerson, &error);
   //@TODO error handling
-
+  
   [self updateRecord:newPerson onAddressBook:addressBookRef withData:contactData completionCallback:callback];
 }
 
@@ -222,13 +242,13 @@ RCT_EXPORT_METHOD(updateContact:(NSDictionary *)contactData callback:(RCTRespons
   ABRecordSetValue(record, kABPersonFirstNameProperty, (__bridge CFStringRef) givenName, &error);
   ABRecordSetValue(record, kABPersonLastNameProperty, (__bridge CFStringRef) familyName, &error);
   ABRecordSetValue(record, kABPersonMiddleNameProperty, (__bridge CFStringRef) middleName, &error);
-
+  
   ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
   NSArray* phoneNumbers = [contactData valueForKey:@"phoneNumbers"];
   for (id phoneData in phoneNumbers) {
     NSString *label = [phoneData valueForKey:@"label"];
     NSString *number = [phoneData valueForKey:@"number"];
-
+    
     if ([label isEqual: @"main"]){
       ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFStringRef) number, kABPersonPhoneMainLabel, NULL);
     }
@@ -244,18 +264,18 @@ RCT_EXPORT_METHOD(updateContact:(NSDictionary *)contactData callback:(RCTRespons
   }
   ABRecordSetValue(record, kABPersonPhoneProperty, multiPhone, nil);
   CFRelease(multiPhone);
-
+  
   ABMutableMultiValueRef multiEmail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
   NSArray* emails = [contactData valueForKey:@"emailAddresses"];
   for (id emailData in emails) {
     NSString *label = [emailData valueForKey:@"label"];
     NSString *email = [emailData valueForKey:@"email"];
-
+    
     ABMultiValueAddValueAndLabel(multiEmail, (__bridge CFStringRef) email, (__bridge CFStringRef) label, NULL);
   }
   ABRecordSetValue(record, kABPersonEmailProperty, multiEmail, nil);
   CFRelease(multiEmail);
-
+  
   ABAddressBookSave(addressBookRef, &error);
   if (error != NULL)
   {
