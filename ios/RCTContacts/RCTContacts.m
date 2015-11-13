@@ -61,9 +61,9 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
   
   [addressBook loadContacts:^(NSArray<APContact *> * _Nullable apContacts, NSError * _Nullable error) {
     if (!error) {
-      NSArray *serializedContacts = [EKSerializer serializeCollection:contacts withMapping:[APContact objectMapping]];
+      NSArray *serializedContacts = [EKSerializer serializeCollection:apContacts withMapping:[APContact objectMapping]];
       
-      callback(@[[NSNull null], contacts]);
+      callback(@[[NSNull null], serializedContacts]);
     }
   }];
 }

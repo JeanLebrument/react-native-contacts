@@ -15,19 +15,11 @@
     [mapping mapPropertiesFromArray:@[@"recordID", @"note", @"websites", @"linkedRecordIDs"]];
     [mapping hasOne:[APName class] forKeyPath:@"name"];
     [mapping hasOne:[APJob class] forKeyPath:@"job"];
-<<<<<<< HEAD
     [mapping mapKeyPath:@"thumbnail" toProperty:@"thumbnail" withValueBlock:^id(NSString *key, NSString *base64image) {
       return base64image ? [UIImage imageWithData:[[NSData alloc]initWithBase64EncodedString:base64image options:NSDataBase64DecodingIgnoreUnknownCharacters]] : NULL;
     } reverseBlock:^id(UIImage *image) {
       return image ? [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] : NULL;
     }];
-=======
-//    [mapping mapKeyPath:@"thumbnail" toProperty:@"thumbnail" withValueBlock:^id(NSString *key, id value) {
-//      // Deserialize Base 64 image to UIImage
-//    } reverseBlock:^id(id value) {
-//      // Serialize UIImage to Base 64
-//    }];
->>>>>>> origin/feature/moreInfosFromUser
     [mapping hasMany:[APPhone class] forKeyPath:@"phones"];
     [mapping hasMany:[APEmail class] forKeyPath:@"emails"];
     [mapping hasMany:[APAddress class] forKeyPath:@"addresses"];
@@ -39,13 +31,10 @@
   }];
 }
 
-<<<<<<< HEAD
 - (NSDictionary *)serializeToDictionary {
   return [EKSerializer serializeObject:self withMapping:[APContact objectMapping]];
 }
 
-=======
->>>>>>> origin/feature/moreInfosFromUser
 @end
 
 @implementation APName (APContact_EasyMapping)

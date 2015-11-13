@@ -7,15 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-<<<<<<< HEAD
-#import <APAddressBook/APAddressBook.h>
-#import <APAddressBook/APContact.h>
-#import <EasyMapping/EasyMapping.h>
-=======
 #import "APAddressBook.h"
 #import "APContact.h"
 #import "EasyMapping.h"
->>>>>>> origin/feature/moreInfosFromUser
 
 @interface APContact (APContact_EasyMapping) <EKMappingProtocol>
 
