@@ -3,6 +3,8 @@
 #import "RCTContacts.h"
 #import "APAddressBook.h"
 #import "APContact.h"
+#import "EasyMapping.h"
+#import "APContact+EasyMapping.h"
 
 @implementation RCTContacts
 
@@ -59,153 +61,7 @@ RCT_EXPORT_METHOD(getAll:(RCTResponseSenderBlock) callback)
   
   [addressBook loadContacts:^(NSArray<APContact *> * _Nullable apContacts, NSError * _Nullable error) {
     if (!error) {
-      NSMutableArray *contacts = [NSMutableArray array];
-      for (APContact *apContact in apContacts) {
-        // RecordID
-        NSMutableDictionary *contact = [NSMutableDictionary dictionary];
-        
-        [contact setValue:apContact.recordID forKey:@"recordID"];
-        
-        // Names
-        [contact setValue:apContact.name.firstName forKey:@"givenName"];
-        [contact setValue:apContact.name.lastName forKey:@"lastName"];
-        [contact setValue:apContact.name.middleName forKey:@"middleName"];
-        [contact setValue:apContact.name.compositeName forKey:@"compositeName"];
-        
-        // Job
-        [contact setValue:apContact.job.jobTitle forKey:@"jobTitle"];
-        [contact setValue:apContact.job.company forKey:@"company"];
-        
-        // Picture
-        [contact setValue:[UIImagePNGRepresentation(apContact.thumbnail) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength] forKey:@"thumbnail"];
-        
-        // Phone number
-        NSMutableArray *phoneNumbers = [NSMutableArray array];
-        
-        for (APPhone *apPhone in apContact.phones) {
-          NSMutableDictionary *phoneNumber = [NSMutableDictionary dictionary];
-          
-          [phoneNumber setValue:apPhone.number forKey:@"number"];
-          [phoneNumber setValue:apPhone.localizedLabel forKey:@"label"];
-          
-          [phoneNumbers addObject:phoneNumber];
-        }
-        
-        [contact setValue:phoneNumbers forKey:@"phoneNumbers"];
-        
-        // Email addresses
-        NSMutableArray *emailAddresses = [NSMutableArray array];
-        
-        for (APEmail *apEmail in apContact.emails) {
-          NSMutableDictionary *emailAddress = [NSMutableDictionary dictionary];
-          
-          [emailAddress setValue:apEmail.address forKey:@"email"];
-          [emailAddress setValue:apEmail.localizedLabel forKey:@"label"];
-          
-          [emailAddresses addObject:emailAddress];
-        }
-        
-        [contact setValue:emailAddresses forKey:@"emailAddresses"];
-        
-        // Addresses
-        NSMutableArray *addresses = [NSMutableArray array];
-        
-        for (APAddress *apAddress in apContact.addresses) {
-          NSMutableDictionary *address = [NSMutableDictionary dictionary];
-          
-          [address setValue:apAddress.street forKey:@"street"];
-          [address setValue:apAddress.city forKey:@"city"];
-          [address setValue:apAddress.state forKey:@"state"];
-          [address setValue:apAddress.zip forKey:@"zip"];
-          [address setValue:apAddress.country forKey:@"country"];
-          [address setValue:apAddress.countryCode forKey:@"countryCode"];
-          
-          [addresses addObject:address];
-        }
-        
-        [contact setValue:addresses forKey:@"addresses"];
-        
-        // Social profiles
-        NSMutableArray *socialProfiles = [NSMutableArray array];
-        
-        for (APSocialProfile *apSocialProfile in apContact.socialProfiles) {
-          NSString *socialNetwork;
-          switch (apSocialProfile.socialNetwork) {
-            case APSocialNetworkUnknown:
-              socialNetwork = @"unknown";
-              break;
-            case APSocialNetworkFacebook:
-              socialNetwork = @"facebook";
-              break;
-            case APSocialNetworkTwitter:
-              socialNetwork = @"twitter";
-              break;
-            case APSocialNetworkLinkedIn:
-              socialNetwork = @"linkedin";
-              break;
-            case APSocialNetworkFlickr:
-              socialNetwork = @"flickr";
-              break;
-            case APSocialNetworkGameCenter:
-              socialNetwork = @"gamecenter";
-              break;
-          }
-          
-          NSMutableDictionary *socialProfile = [NSMutableDictionary dictionary];
-          
-          [socialProfile setValue:socialNetwork forKey:@"socialNetwork"];
-          [socialProfile setValue:apSocialProfile.username forKey:@"username"];
-          [socialProfile setValue:apSocialProfile.userIdentifier forKey:@"userIdentifier"];
-          [socialProfile setValue:[apSocialProfile.url absoluteString] forKey:@"url"];
-          
-          [socialProfiles addObject:socialProfile];
-        }
-        
-        [contact setValue:socialProfiles forKey:@"socialProfiles"];
-        
-        // Birthday
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
-        [contact setValue:[formatter stringFromDate:apContact.birthday] forKey:@"birthday"];
-        
-        // Note
-        [contact setValue:apContact.note forKey:@"note"];
-        
-        // Websites
-        [contact setValue:apContact.websites forKey:@"websites"];
-        
-        // Related persons
-        NSMutableArray *relatedPersons = [NSMutableArray array];
-        
-        for (APRelatedPerson *apRelatedPerson in apContact.relatedPersons) {
-          NSMutableDictionary *relatedPersons = [NSMutableDictionary dictionary];
-          [relatedPersons setValue:apRelatedPerson.name forKey:@"name"];
-          [relatedPersons setValue:apRelatedPerson.localizedLabel forKey:@"label"];
-        }
-        
-        [contact setValue:relatedPersons forKey:@"relatedPersons"];
-        
-        // Linked record IDs
-        [contact setValue:apContact.linkedRecordIDs forKey:@"linkedRecordIDs"];
-        
-        // Source
-        NSMutableDictionary *source = [NSMutableDictionary dictionary];
-        
-        [source setValue:apContact.source.sourceType forKey:@"sourceType"];
-        [source setValue:apContact.source.sourceID forKey:@"sourceID"];
-        
-        [contact setValue:source forKey:@"source"];
-        
-        // Record date
-        NSMutableDictionary *recordDate = [NSMutableDictionary dictionary];
-        
-        [recordDate setValue:[formatter stringFromDate:apContact.recordDate.creationDate] forKey:@"creationDate"];
-        [recordDate setValue:[formatter stringFromDate:apContact.recordDate.modificationDate]forKey:@"modificationDate"];
-        
-        [contact setValue:recordDate forKey:@"recordDate"];
-        
-        [contacts addObject:contact];
-      }
+      NSArray *serializedContacts = [EKSerializer serializeCollection:contacts withMapping:[APContact objectMapping]];
       
       callback(@[[NSNull null], contacts]);
     }
