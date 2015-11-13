@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		144161911BD0A79300FA4F59 /* RCTContacts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 144161901BD0A79300FA4F59 /* RCTContacts.h */; };
 		144161931BD0A79300FA4F59 /* RCTContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 144161921BD0A79300FA4F59 /* RCTContacts.m */; };
-<<<<<<< HEAD
 		4DB4ADF51BF4D6C100582736 /* APContactBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4AD9C1BF4D6C100582736 /* APContactBuilder.m */; };
 		4DB4ADF61BF4D6C100582736 /* APContactListBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4AD9E1BF4D6C100582736 /* APContactListBuilder.m */; };
 		4DB4ADF71BF4D6C100582736 /* APContactDataExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4ADA11BF4D6C100582736 /* APContactDataExtractor.m */; };
@@ -47,45 +46,6 @@
 		4DB4AE171BF4D6C100582736 /* EKSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4ADF01BF4D6C100582736 /* EKSerializer.m */; };
 		4DB4AE181BF4D6C100582736 /* NSArray+FlattenArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4ADF21BF4D6C100582736 /* NSArray+FlattenArray.m */; };
 		4DB4AE191BF4D6C100582736 /* NSDateFormatter+EasyMappingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4ADF41BF4D6C100582736 /* NSDateFormatter+EasyMappingAdditions.m */; };
-=======
-		4DB134DC1BF3474D0035BEAD /* APContactBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134A51BF3474D0035BEAD /* APContactBuilder.m */; };
-		4DB134DD1BF3474D0035BEAD /* APContactListBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134A71BF3474D0035BEAD /* APContactListBuilder.m */; };
-		4DB134DE1BF3474D0035BEAD /* APContactDataExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134AA1BF3474D0035BEAD /* APContactDataExtractor.m */; };
-		4DB134DF1BF3474D0035BEAD /* APImageExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134AC1BF3474D0035BEAD /* APImageExtractor.m */; };
-		4DB134E01BF3474D0035BEAD /* APSocialServiceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134AF1BF3474D0035BEAD /* APSocialServiceHelper.m */; };
-		4DB134E11BF3474D0035BEAD /* APAddressBookAccessRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134B21BF3474D0035BEAD /* APAddressBookAccessRoutine.m */; };
-		4DB134E21BF3474D0035BEAD /* APAddressBookContactsRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134B41BF3474D0035BEAD /* APAddressBookContactsRoutine.m */; };
-		4DB134E31BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134B71BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.m */; };
-		4DB134E41BF3474D0035BEAD /* APAddressBookBaseRoutine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134BA1BF3474D0035BEAD /* APAddressBookBaseRoutine.m */; };
-		4DB134E51BF3474D0035BEAD /* APThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134BD1BF3474D0035BEAD /* APThread.m */; };
-		4DB134E61BF3474D0035BEAD /* APAddressBookRefWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134C01BF3474D0035BEAD /* APAddressBookRefWrapper.m */; };
-		4DB134E71BF3474D0035BEAD /* APAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134C31BF3474D0035BEAD /* APAddressBook.m */; };
-		4DB134E81BF3474D0035BEAD /* APAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134C61BF3474D0035BEAD /* APAddress.m */; };
-		4DB134E91BF3474D0035BEAD /* APContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134C81BF3474D0035BEAD /* APContact.m */; };
-		4DB134EA1BF3474D0035BEAD /* APEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134CA1BF3474D0035BEAD /* APEmail.m */; };
-		4DB134EB1BF3474D0035BEAD /* APJob.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134CC1BF3474D0035BEAD /* APJob.m */; };
-		4DB134EC1BF3474D0035BEAD /* APName.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134CE1BF3474D0035BEAD /* APName.m */; };
-		4DB134ED1BF3474D0035BEAD /* APPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134D01BF3474D0035BEAD /* APPhone.m */; };
-		4DB134EE1BF3474D0035BEAD /* APRecordDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134D21BF3474D0035BEAD /* APRecordDate.m */; };
-		4DB134EF1BF3474D0035BEAD /* APRelatedPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134D41BF3474D0035BEAD /* APRelatedPerson.m */; };
-		4DB134F01BF3474D0035BEAD /* APSocialProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134D61BF3474D0035BEAD /* APSocialProfile.m */; };
-		4DB134F11BF3474D0035BEAD /* APSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134D81BF3474D0035BEAD /* APSource.m */; };
-		4DB134F51BF3496C0035BEAD /* APContact+EasyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134F41BF3496C0035BEAD /* APContact+EasyMapping.m */; };
-		4DB135141BF3499C0035BEAD /* EKCoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134F81BF3499C0035BEAD /* EKCoreDataImporter.m */; };
-		4DB135151BF3499C0035BEAD /* EKManagedObjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134FA1BF3499C0035BEAD /* EKManagedObjectMapper.m */; };
-		4DB135161BF3499C0035BEAD /* EKManagedObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134FC1BF3499C0035BEAD /* EKManagedObjectMapping.m */; };
-		4DB135171BF3499C0035BEAD /* EKManagedObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB134FE1BF3499C0035BEAD /* EKManagedObjectModel.m */; };
-		4DB135181BF3499C0035BEAD /* EKMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135001BF3499C0035BEAD /* EKMapper.m */; };
-		4DB135191BF3499C0035BEAD /* EKMappingBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135021BF3499C0035BEAD /* EKMappingBlocks.m */; };
-		4DB1351A1BF3499C0035BEAD /* EKObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135051BF3499C0035BEAD /* EKObjectMapping.m */; };
-		4DB1351B1BF3499C0035BEAD /* EKObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135071BF3499C0035BEAD /* EKObjectModel.m */; };
-		4DB1351C1BF3499C0035BEAD /* EKPropertyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135091BF3499C0035BEAD /* EKPropertyHelper.m */; };
-		4DB1351D1BF3499C0035BEAD /* EKPropertyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1350B1BF3499C0035BEAD /* EKPropertyMapping.m */; };
-		4DB1351E1BF3499C0035BEAD /* EKRelationshipMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1350D1BF3499C0035BEAD /* EKRelationshipMapping.m */; };
-		4DB1351F1BF3499C0035BEAD /* EKSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1350F1BF3499C0035BEAD /* EKSerializer.m */; };
-		4DB135201BF3499C0035BEAD /* NSArray+FlattenArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135111BF3499C0035BEAD /* NSArray+FlattenArray.m */; };
-		4DB135211BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB135131BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.m */; };
->>>>>>> origin/feature/moreInfosFromUser
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,7 +65,6 @@
 		1441618E1BD0A79300FA4F59 /* libRCTContacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTContacts.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		144161901BD0A79300FA4F59 /* RCTContacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTContacts.h; sourceTree = "<group>"; };
 		144161921BD0A79300FA4F59 /* RCTContacts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTContacts.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		4DB4AD9B1BF4D6C100582736 /* APContactBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContactBuilder.h; sourceTree = "<group>"; };
 		4DB4AD9C1BF4D6C100582736 /* APContactBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APContactBuilder.m; sourceTree = "<group>"; };
 		4DB4AD9D1BF4D6C100582736 /* APContactListBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContactListBuilder.h; sourceTree = "<group>"; };
@@ -185,87 +144,6 @@
 		4DB4ADF21BF4D6C100582736 /* NSArray+FlattenArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FlattenArray.m"; sourceTree = "<group>"; };
 		4DB4ADF31BF4D6C100582736 /* NSDateFormatter+EasyMappingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+EasyMappingAdditions.h"; sourceTree = "<group>"; };
 		4DB4ADF41BF4D6C100582736 /* NSDateFormatter+EasyMappingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+EasyMappingAdditions.m"; sourceTree = "<group>"; };
-=======
-		4DB134A41BF3474D0035BEAD /* APContactBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContactBuilder.h; sourceTree = "<group>"; };
-		4DB134A51BF3474D0035BEAD /* APContactBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APContactBuilder.m; sourceTree = "<group>"; };
-		4DB134A61BF3474D0035BEAD /* APContactListBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContactListBuilder.h; sourceTree = "<group>"; };
-		4DB134A71BF3474D0035BEAD /* APContactListBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APContactListBuilder.m; sourceTree = "<group>"; };
-		4DB134A91BF3474D0035BEAD /* APContactDataExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContactDataExtractor.h; sourceTree = "<group>"; };
-		4DB134AA1BF3474D0035BEAD /* APContactDataExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APContactDataExtractor.m; sourceTree = "<group>"; };
-		4DB134AB1BF3474D0035BEAD /* APImageExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APImageExtractor.h; sourceTree = "<group>"; };
-		4DB134AC1BF3474D0035BEAD /* APImageExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APImageExtractor.m; sourceTree = "<group>"; };
-		4DB134AE1BF3474D0035BEAD /* APSocialServiceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSocialServiceHelper.h; sourceTree = "<group>"; };
-		4DB134AF1BF3474D0035BEAD /* APSocialServiceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APSocialServiceHelper.m; sourceTree = "<group>"; };
-		4DB134B11BF3474D0035BEAD /* APAddressBookAccessRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookAccessRoutine.h; sourceTree = "<group>"; };
-		4DB134B21BF3474D0035BEAD /* APAddressBookAccessRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBookAccessRoutine.m; sourceTree = "<group>"; };
-		4DB134B31BF3474D0035BEAD /* APAddressBookContactsRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookContactsRoutine.h; sourceTree = "<group>"; };
-		4DB134B41BF3474D0035BEAD /* APAddressBookContactsRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBookContactsRoutine.m; sourceTree = "<group>"; };
-		4DB134B51BF3474D0035BEAD /* APAddressBookExternalChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookExternalChangeDelegate.h; sourceTree = "<group>"; };
-		4DB134B61BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookExternalChangeRoutine.h; sourceTree = "<group>"; };
-		4DB134B71BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBookExternalChangeRoutine.m; sourceTree = "<group>"; };
-		4DB134B91BF3474D0035BEAD /* APAddressBookBaseRoutine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookBaseRoutine.h; sourceTree = "<group>"; };
-		4DB134BA1BF3474D0035BEAD /* APAddressBookBaseRoutine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBookBaseRoutine.m; sourceTree = "<group>"; };
-		4DB134BC1BF3474D0035BEAD /* APThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APThread.h; sourceTree = "<group>"; };
-		4DB134BD1BF3474D0035BEAD /* APThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APThread.m; sourceTree = "<group>"; };
-		4DB134BF1BF3474D0035BEAD /* APAddressBookRefWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBookRefWrapper.h; sourceTree = "<group>"; };
-		4DB134C01BF3474D0035BEAD /* APAddressBookRefWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBookRefWrapper.m; sourceTree = "<group>"; };
-		4DB134C21BF3474D0035BEAD /* APAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddressBook.h; sourceTree = "<group>"; };
-		4DB134C31BF3474D0035BEAD /* APAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddressBook.m; sourceTree = "<group>"; };
-		4DB134C51BF3474D0035BEAD /* APAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAddress.h; sourceTree = "<group>"; };
-		4DB134C61BF3474D0035BEAD /* APAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAddress.m; sourceTree = "<group>"; };
-		4DB134C71BF3474D0035BEAD /* APContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APContact.h; sourceTree = "<group>"; };
-		4DB134C81BF3474D0035BEAD /* APContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APContact.m; sourceTree = "<group>"; };
-		4DB134C91BF3474D0035BEAD /* APEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APEmail.h; sourceTree = "<group>"; };
-		4DB134CA1BF3474D0035BEAD /* APEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APEmail.m; sourceTree = "<group>"; };
-		4DB134CB1BF3474D0035BEAD /* APJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APJob.h; sourceTree = "<group>"; };
-		4DB134CC1BF3474D0035BEAD /* APJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APJob.m; sourceTree = "<group>"; };
-		4DB134CD1BF3474D0035BEAD /* APName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APName.h; sourceTree = "<group>"; };
-		4DB134CE1BF3474D0035BEAD /* APName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APName.m; sourceTree = "<group>"; };
-		4DB134CF1BF3474D0035BEAD /* APPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPhone.h; sourceTree = "<group>"; };
-		4DB134D01BF3474D0035BEAD /* APPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPhone.m; sourceTree = "<group>"; };
-		4DB134D11BF3474D0035BEAD /* APRecordDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APRecordDate.h; sourceTree = "<group>"; };
-		4DB134D21BF3474D0035BEAD /* APRecordDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APRecordDate.m; sourceTree = "<group>"; };
-		4DB134D31BF3474D0035BEAD /* APRelatedPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APRelatedPerson.h; sourceTree = "<group>"; };
-		4DB134D41BF3474D0035BEAD /* APRelatedPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APRelatedPerson.m; sourceTree = "<group>"; };
-		4DB134D51BF3474D0035BEAD /* APSocialProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSocialProfile.h; sourceTree = "<group>"; };
-		4DB134D61BF3474D0035BEAD /* APSocialProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APSocialProfile.m; sourceTree = "<group>"; };
-		4DB134D71BF3474D0035BEAD /* APSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSource.h; sourceTree = "<group>"; };
-		4DB134D81BF3474D0035BEAD /* APSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APSource.m; sourceTree = "<group>"; };
-		4DB134D91BF3474D0035BEAD /* APTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTypes.h; sourceTree = "<group>"; };
-		4DB134DB1BF3474D0035BEAD /* APAddressBook-Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APAddressBook-Bridging.h"; sourceTree = "<group>"; };
-		4DB134F31BF3496C0035BEAD /* APContact+EasyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APContact+EasyMapping.h"; sourceTree = "<group>"; };
-		4DB134F41BF3496C0035BEAD /* APContact+EasyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APContact+EasyMapping.m"; sourceTree = "<group>"; };
-		4DB134F61BF3499C0035BEAD /* EasyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EasyMapping.h; path = EasyMapping/EasyMapping.h; sourceTree = "<group>"; };
-		4DB134F71BF3499C0035BEAD /* EKCoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKCoreDataImporter.h; path = EasyMapping/EKCoreDataImporter.h; sourceTree = "<group>"; };
-		4DB134F81BF3499C0035BEAD /* EKCoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKCoreDataImporter.m; path = EasyMapping/EKCoreDataImporter.m; sourceTree = "<group>"; };
-		4DB134F91BF3499C0035BEAD /* EKManagedObjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKManagedObjectMapper.h; path = EasyMapping/EKManagedObjectMapper.h; sourceTree = "<group>"; };
-		4DB134FA1BF3499C0035BEAD /* EKManagedObjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKManagedObjectMapper.m; path = EasyMapping/EKManagedObjectMapper.m; sourceTree = "<group>"; };
-		4DB134FB1BF3499C0035BEAD /* EKManagedObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKManagedObjectMapping.h; path = EasyMapping/EKManagedObjectMapping.h; sourceTree = "<group>"; };
-		4DB134FC1BF3499C0035BEAD /* EKManagedObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKManagedObjectMapping.m; path = EasyMapping/EKManagedObjectMapping.m; sourceTree = "<group>"; };
-		4DB134FD1BF3499C0035BEAD /* EKManagedObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKManagedObjectModel.h; path = EasyMapping/EKManagedObjectModel.h; sourceTree = "<group>"; };
-		4DB134FE1BF3499C0035BEAD /* EKManagedObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKManagedObjectModel.m; path = EasyMapping/EKManagedObjectModel.m; sourceTree = "<group>"; };
-		4DB134FF1BF3499C0035BEAD /* EKMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKMapper.h; path = EasyMapping/EKMapper.h; sourceTree = "<group>"; };
-		4DB135001BF3499C0035BEAD /* EKMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKMapper.m; path = EasyMapping/EKMapper.m; sourceTree = "<group>"; };
-		4DB135011BF3499C0035BEAD /* EKMappingBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKMappingBlocks.h; path = EasyMapping/EKMappingBlocks.h; sourceTree = "<group>"; };
-		4DB135021BF3499C0035BEAD /* EKMappingBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKMappingBlocks.m; path = EasyMapping/EKMappingBlocks.m; sourceTree = "<group>"; };
-		4DB135031BF3499C0035BEAD /* EKMappingProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKMappingProtocol.h; path = EasyMapping/EKMappingProtocol.h; sourceTree = "<group>"; };
-		4DB135041BF3499C0035BEAD /* EKObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKObjectMapping.h; path = EasyMapping/EKObjectMapping.h; sourceTree = "<group>"; };
-		4DB135051BF3499C0035BEAD /* EKObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKObjectMapping.m; path = EasyMapping/EKObjectMapping.m; sourceTree = "<group>"; };
-		4DB135061BF3499C0035BEAD /* EKObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKObjectModel.h; path = EasyMapping/EKObjectModel.h; sourceTree = "<group>"; };
-		4DB135071BF3499C0035BEAD /* EKObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKObjectModel.m; path = EasyMapping/EKObjectModel.m; sourceTree = "<group>"; };
-		4DB135081BF3499C0035BEAD /* EKPropertyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKPropertyHelper.h; path = EasyMapping/EKPropertyHelper.h; sourceTree = "<group>"; };
-		4DB135091BF3499C0035BEAD /* EKPropertyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKPropertyHelper.m; path = EasyMapping/EKPropertyHelper.m; sourceTree = "<group>"; };
-		4DB1350A1BF3499C0035BEAD /* EKPropertyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKPropertyMapping.h; path = EasyMapping/EKPropertyMapping.h; sourceTree = "<group>"; };
-		4DB1350B1BF3499C0035BEAD /* EKPropertyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKPropertyMapping.m; path = EasyMapping/EKPropertyMapping.m; sourceTree = "<group>"; };
-		4DB1350C1BF3499C0035BEAD /* EKRelationshipMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKRelationshipMapping.h; path = EasyMapping/EKRelationshipMapping.h; sourceTree = "<group>"; };
-		4DB1350D1BF3499C0035BEAD /* EKRelationshipMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKRelationshipMapping.m; path = EasyMapping/EKRelationshipMapping.m; sourceTree = "<group>"; };
-		4DB1350E1BF3499C0035BEAD /* EKSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EKSerializer.h; path = EasyMapping/EKSerializer.h; sourceTree = "<group>"; };
-		4DB1350F1BF3499C0035BEAD /* EKSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EKSerializer.m; path = EasyMapping/EKSerializer.m; sourceTree = "<group>"; };
-		4DB135101BF3499C0035BEAD /* NSArray+FlattenArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+FlattenArray.h"; path = "EasyMapping/NSArray+FlattenArray.h"; sourceTree = "<group>"; };
-		4DB135111BF3499C0035BEAD /* NSArray+FlattenArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+FlattenArray.m"; path = "EasyMapping/NSArray+FlattenArray.m"; sourceTree = "<group>"; };
-		4DB135121BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+EasyMappingAdditions.h"; path = "EasyMapping/NSDateFormatter+EasyMappingAdditions.h"; sourceTree = "<group>"; };
-		4DB135131BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+EasyMappingAdditions.m"; path = "EasyMapping/NSDateFormatter+EasyMappingAdditions.m"; sourceTree = "<group>"; };
->>>>>>> origin/feature/moreInfosFromUser
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,15 +186,9 @@
 		4DB4AD961BF4D6C100582736 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				4DB4AD971BF4D6C100582736 /* APAddressBook */,
 				4DB4ADD31BF4D6C100582736 /* APContact+EasyMapping */,
 				4DB4ADD61BF4D6C100582736 /* EasyMapping */,
-=======
-				4DB134F21BF3496C0035BEAD /* APContact+EasyMapping */,
-				4DB134A01BF3473C0035BEAD /* APAddressBook */,
-				4D22F0091BEFF992006A9ABC /* EasyMapping */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Vendors;
 			sourceTree = SOURCE_ROOT;
@@ -330,70 +202,15 @@
 			path = APAddressBook;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4AD981BF4D6C100582736 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4AD991BF4D6C100582736 /* Private */,
 				4DB4ADB81BF4D6C100582736 /* Public */,
-=======
-		4D22F0091BEFF992006A9ABC /* EasyMapping */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134F61BF3499C0035BEAD /* EasyMapping.h */,
-				4DB134F71BF3499C0035BEAD /* EKCoreDataImporter.h */,
-				4DB134F81BF3499C0035BEAD /* EKCoreDataImporter.m */,
-				4DB134F91BF3499C0035BEAD /* EKManagedObjectMapper.h */,
-				4DB134FA1BF3499C0035BEAD /* EKManagedObjectMapper.m */,
-				4DB134FB1BF3499C0035BEAD /* EKManagedObjectMapping.h */,
-				4DB134FC1BF3499C0035BEAD /* EKManagedObjectMapping.m */,
-				4DB134FD1BF3499C0035BEAD /* EKManagedObjectModel.h */,
-				4DB134FE1BF3499C0035BEAD /* EKManagedObjectModel.m */,
-				4DB134FF1BF3499C0035BEAD /* EKMapper.h */,
-				4DB135001BF3499C0035BEAD /* EKMapper.m */,
-				4DB135011BF3499C0035BEAD /* EKMappingBlocks.h */,
-				4DB135021BF3499C0035BEAD /* EKMappingBlocks.m */,
-				4DB135031BF3499C0035BEAD /* EKMappingProtocol.h */,
-				4DB135041BF3499C0035BEAD /* EKObjectMapping.h */,
-				4DB135051BF3499C0035BEAD /* EKObjectMapping.m */,
-				4DB135061BF3499C0035BEAD /* EKObjectModel.h */,
-				4DB135071BF3499C0035BEAD /* EKObjectModel.m */,
-				4DB135081BF3499C0035BEAD /* EKPropertyHelper.h */,
-				4DB135091BF3499C0035BEAD /* EKPropertyHelper.m */,
-				4DB1350A1BF3499C0035BEAD /* EKPropertyMapping.h */,
-				4DB1350B1BF3499C0035BEAD /* EKPropertyMapping.m */,
-				4DB1350C1BF3499C0035BEAD /* EKRelationshipMapping.h */,
-				4DB1350D1BF3499C0035BEAD /* EKRelationshipMapping.m */,
-				4DB1350E1BF3499C0035BEAD /* EKSerializer.h */,
-				4DB1350F1BF3499C0035BEAD /* EKSerializer.m */,
-				4DB135101BF3499C0035BEAD /* NSArray+FlattenArray.h */,
-				4DB135111BF3499C0035BEAD /* NSArray+FlattenArray.m */,
-				4DB135121BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.h */,
-				4DB135131BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.m */,
-			);
-			name = EasyMapping;
-			sourceTree = "<group>";
-		};
-		4DB134A01BF3473C0035BEAD /* APAddressBook */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134A11BF3474D0035BEAD /* Core */,
-				4DB134DA1BF3474D0035BEAD /* Swift */,
-			);
-			path = APAddressBook;
-			sourceTree = "<group>";
-		};
-		4DB134A11BF3474D0035BEAD /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134A21BF3474D0035BEAD /* Private */,
-				4DB134C11BF3474D0035BEAD /* Public */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4AD991BF4D6C100582736 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,22 +220,10 @@
 				4DB4ADA71BF4D6C100582736 /* Routine */,
 				4DB4ADB21BF4D6C100582736 /* Thread */,
 				4DB4ADB51BF4D6C100582736 /* Wrapper */,
-=======
-		4DB134A21BF3474D0035BEAD /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134A31BF3474D0035BEAD /* Builders */,
-				4DB134A81BF3474D0035BEAD /* Extractors */,
-				4DB134AD1BF3474D0035BEAD /* Helpers */,
-				4DB134B01BF3474D0035BEAD /* Routine */,
-				4DB134BB1BF3474D0035BEAD /* Thread */,
-				4DB134BE1BF3474D0035BEAD /* Wrapper */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Private;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4AD9A1BF4D6C100582736 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,20 +231,10 @@
 				4DB4AD9C1BF4D6C100582736 /* APContactBuilder.m */,
 				4DB4AD9D1BF4D6C100582736 /* APContactListBuilder.h */,
 				4DB4AD9E1BF4D6C100582736 /* APContactListBuilder.m */,
-=======
-		4DB134A31BF3474D0035BEAD /* Builders */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134A41BF3474D0035BEAD /* APContactBuilder.h */,
-				4DB134A51BF3474D0035BEAD /* APContactBuilder.m */,
-				4DB134A61BF3474D0035BEAD /* APContactListBuilder.h */,
-				4DB134A71BF3474D0035BEAD /* APContactListBuilder.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Builders;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4AD9F1BF4D6C100582736 /* Extractors */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,37 +242,19 @@
 				4DB4ADA11BF4D6C100582736 /* APContactDataExtractor.m */,
 				4DB4ADA21BF4D6C100582736 /* APImageExtractor.h */,
 				4DB4ADA31BF4D6C100582736 /* APImageExtractor.m */,
-=======
-		4DB134A81BF3474D0035BEAD /* Extractors */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134A91BF3474D0035BEAD /* APContactDataExtractor.h */,
-				4DB134AA1BF3474D0035BEAD /* APContactDataExtractor.m */,
-				4DB134AB1BF3474D0035BEAD /* APImageExtractor.h */,
-				4DB134AC1BF3474D0035BEAD /* APImageExtractor.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Extractors;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADA41BF4D6C100582736 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADA51BF4D6C100582736 /* APSocialServiceHelper.h */,
 				4DB4ADA61BF4D6C100582736 /* APSocialServiceHelper.m */,
-=======
-		4DB134AD1BF3474D0035BEAD /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134AE1BF3474D0035BEAD /* APSocialServiceHelper.h */,
-				4DB134AF1BF3474D0035BEAD /* APSocialServiceHelper.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADA71BF4D6C100582736 /* Routine */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,94 +266,47 @@
 				4DB4ADAD1BF4D6C100582736 /* APAddressBookExternalChangeRoutine.h */,
 				4DB4ADAE1BF4D6C100582736 /* APAddressBookExternalChangeRoutine.m */,
 				4DB4ADAF1BF4D6C100582736 /* Base */,
-=======
-		4DB134B01BF3474D0035BEAD /* Routine */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134B11BF3474D0035BEAD /* APAddressBookAccessRoutine.h */,
-				4DB134B21BF3474D0035BEAD /* APAddressBookAccessRoutine.m */,
-				4DB134B31BF3474D0035BEAD /* APAddressBookContactsRoutine.h */,
-				4DB134B41BF3474D0035BEAD /* APAddressBookContactsRoutine.m */,
-				4DB134B51BF3474D0035BEAD /* APAddressBookExternalChangeDelegate.h */,
-				4DB134B61BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.h */,
-				4DB134B71BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.m */,
-				4DB134B81BF3474D0035BEAD /* Base */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Routine;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADAF1BF4D6C100582736 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADB01BF4D6C100582736 /* APAddressBookBaseRoutine.h */,
 				4DB4ADB11BF4D6C100582736 /* APAddressBookBaseRoutine.m */,
-=======
-		4DB134B81BF3474D0035BEAD /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134B91BF3474D0035BEAD /* APAddressBookBaseRoutine.h */,
-				4DB134BA1BF3474D0035BEAD /* APAddressBookBaseRoutine.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADB21BF4D6C100582736 /* Thread */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADB31BF4D6C100582736 /* APThread.h */,
 				4DB4ADB41BF4D6C100582736 /* APThread.m */,
-=======
-		4DB134BB1BF3474D0035BEAD /* Thread */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134BC1BF3474D0035BEAD /* APThread.h */,
-				4DB134BD1BF3474D0035BEAD /* APThread.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Thread;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADB51BF4D6C100582736 /* Wrapper */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADB61BF4D6C100582736 /* APAddressBookRefWrapper.h */,
 				4DB4ADB71BF4D6C100582736 /* APAddressBookRefWrapper.m */,
-=======
-		4DB134BE1BF3474D0035BEAD /* Wrapper */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134BF1BF3474D0035BEAD /* APAddressBookRefWrapper.h */,
-				4DB134C01BF3474D0035BEAD /* APAddressBookRefWrapper.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Wrapper;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADB81BF4D6C100582736 /* Public */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADB91BF4D6C100582736 /* APAddressBook.h */,
 				4DB4ADBA1BF4D6C100582736 /* APAddressBook.m */,
 				4DB4ADBB1BF4D6C100582736 /* Models */,
-=======
-		4DB134C11BF3474D0035BEAD /* Public */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134C21BF3474D0035BEAD /* APAddressBook.h */,
-				4DB134C31BF3474D0035BEAD /* APAddressBook.m */,
-				4DB134C41BF3474D0035BEAD /* Models */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Public;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADBB1BF4D6C100582736 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,69 +331,27 @@
 				4DB4ADCE1BF4D6C100582736 /* APSource.h */,
 				4DB4ADCF1BF4D6C100582736 /* APSource.m */,
 				4DB4ADD01BF4D6C100582736 /* APTypes.h */,
-=======
-		4DB134C41BF3474D0035BEAD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134C51BF3474D0035BEAD /* APAddress.h */,
-				4DB134C61BF3474D0035BEAD /* APAddress.m */,
-				4DB134C71BF3474D0035BEAD /* APContact.h */,
-				4DB134C81BF3474D0035BEAD /* APContact.m */,
-				4DB134C91BF3474D0035BEAD /* APEmail.h */,
-				4DB134CA1BF3474D0035BEAD /* APEmail.m */,
-				4DB134CB1BF3474D0035BEAD /* APJob.h */,
-				4DB134CC1BF3474D0035BEAD /* APJob.m */,
-				4DB134CD1BF3474D0035BEAD /* APName.h */,
-				4DB134CE1BF3474D0035BEAD /* APName.m */,
-				4DB134CF1BF3474D0035BEAD /* APPhone.h */,
-				4DB134D01BF3474D0035BEAD /* APPhone.m */,
-				4DB134D11BF3474D0035BEAD /* APRecordDate.h */,
-				4DB134D21BF3474D0035BEAD /* APRecordDate.m */,
-				4DB134D31BF3474D0035BEAD /* APRelatedPerson.h */,
-				4DB134D41BF3474D0035BEAD /* APRelatedPerson.m */,
-				4DB134D51BF3474D0035BEAD /* APSocialProfile.h */,
-				4DB134D61BF3474D0035BEAD /* APSocialProfile.m */,
-				4DB134D71BF3474D0035BEAD /* APSource.h */,
-				4DB134D81BF3474D0035BEAD /* APSource.m */,
-				4DB134D91BF3474D0035BEAD /* APTypes.h */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADD11BF4D6C100582736 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADD21BF4D6C100582736 /* APAddressBook-Bridging.h */,
-=======
-		4DB134DA1BF3474D0035BEAD /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134DB1BF3474D0035BEAD /* APAddressBook-Bridging.h */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = Swift;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADD31BF4D6C100582736 /* APContact+EasyMapping */ = {
 			isa = PBXGroup;
 			children = (
 				4DB4ADD41BF4D6C100582736 /* APContact+EasyMapping.h */,
 				4DB4ADD51BF4D6C100582736 /* APContact+EasyMapping.m */,
-=======
-		4DB134F21BF3496C0035BEAD /* APContact+EasyMapping */ = {
-			isa = PBXGroup;
-			children = (
-				4DB134F31BF3496C0035BEAD /* APContact+EasyMapping.h */,
-				4DB134F41BF3496C0035BEAD /* APContact+EasyMapping.m */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			path = "APContact+EasyMapping";
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		4DB4ADD61BF4D6C100582736 /* EasyMapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,8 +389,6 @@
 			path = EasyMapping;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> origin/feature/moreInfosFromUser
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -759,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				4DB4AE191BF4D6C100582736 /* NSDateFormatter+EasyMappingAdditions.m in Sources */,
 				4DB4AE001BF4D6C100582736 /* APAddressBook.m in Sources */,
 				4DB4AE061BF4D6C100582736 /* APPhone.m in Sources */,
@@ -798,46 +483,6 @@
 				4DB4AE0C1BF4D6C100582736 /* EKCoreDataImporter.m in Sources */,
 				4DB4ADF61BF4D6C100582736 /* APContactListBuilder.m in Sources */,
 				4DB4AE161BF4D6C100582736 /* EKRelationshipMapping.m in Sources */,
-=======
-				4DB135211BF3499C0035BEAD /* NSDateFormatter+EasyMappingAdditions.m in Sources */,
-				4DB134E71BF3474D0035BEAD /* APAddressBook.m in Sources */,
-				4DB134ED1BF3474D0035BEAD /* APPhone.m in Sources */,
-				4DB1351B1BF3499C0035BEAD /* EKObjectModel.m in Sources */,
-				4DB1351F1BF3499C0035BEAD /* EKSerializer.m in Sources */,
-				4DB134E21BF3474D0035BEAD /* APAddressBookContactsRoutine.m in Sources */,
-				4DB134F11BF3474D0035BEAD /* APSource.m in Sources */,
-				144161931BD0A79300FA4F59 /* RCTContacts.m in Sources */,
-				4DB134E91BF3474D0035BEAD /* APContact.m in Sources */,
-				4DB134E51BF3474D0035BEAD /* APThread.m in Sources */,
-				4DB135181BF3499C0035BEAD /* EKMapper.m in Sources */,
-				4DB135151BF3499C0035BEAD /* EKManagedObjectMapper.m in Sources */,
-				4DB134E11BF3474D0035BEAD /* APAddressBookAccessRoutine.m in Sources */,
-				4DB134F51BF3496C0035BEAD /* APContact+EasyMapping.m in Sources */,
-				4DB134DC1BF3474D0035BEAD /* APContactBuilder.m in Sources */,
-				4DB134EC1BF3474D0035BEAD /* APName.m in Sources */,
-				4DB134E41BF3474D0035BEAD /* APAddressBookBaseRoutine.m in Sources */,
-				4DB134E81BF3474D0035BEAD /* APAddress.m in Sources */,
-				4DB1351C1BF3499C0035BEAD /* EKPropertyHelper.m in Sources */,
-				4DB134DE1BF3474D0035BEAD /* APContactDataExtractor.m in Sources */,
-				4DB134E31BF3474D0035BEAD /* APAddressBookExternalChangeRoutine.m in Sources */,
-				4DB134F01BF3474D0035BEAD /* APSocialProfile.m in Sources */,
-				4DB134E61BF3474D0035BEAD /* APAddressBookRefWrapper.m in Sources */,
-				4DB135171BF3499C0035BEAD /* EKManagedObjectModel.m in Sources */,
-				4DB134EB1BF3474D0035BEAD /* APJob.m in Sources */,
-				4DB135201BF3499C0035BEAD /* NSArray+FlattenArray.m in Sources */,
-				4DB134EE1BF3474D0035BEAD /* APRecordDate.m in Sources */,
-				4DB134E01BF3474D0035BEAD /* APSocialServiceHelper.m in Sources */,
-				4DB134EA1BF3474D0035BEAD /* APEmail.m in Sources */,
-				4DB134EF1BF3474D0035BEAD /* APRelatedPerson.m in Sources */,
-				4DB135161BF3499C0035BEAD /* EKManagedObjectMapping.m in Sources */,
-				4DB135191BF3499C0035BEAD /* EKMappingBlocks.m in Sources */,
-				4DB1351A1BF3499C0035BEAD /* EKObjectMapping.m in Sources */,
-				4DB134DF1BF3474D0035BEAD /* APImageExtractor.m in Sources */,
-				4DB1351D1BF3499C0035BEAD /* EKPropertyMapping.m in Sources */,
-				4DB135141BF3499C0035BEAD /* EKCoreDataImporter.m in Sources */,
-				4DB134DD1BF3474D0035BEAD /* APContactListBuilder.m in Sources */,
-				4DB1351E1BF3499C0035BEAD /* EKRelationshipMapping.m in Sources */,
->>>>>>> origin/feature/moreInfosFromUser
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
