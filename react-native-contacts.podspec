@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Pod::Spec.new do |s|
 
     s.name                  = "react-native-contacts"
